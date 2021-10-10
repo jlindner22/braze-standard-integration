@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript">
+          +function(a,p,P,b,y){a.appboy={};a.appboyQueue=[];for(var s="DeviceProperties Card Card.prototype.dismissCard Card.prototype.removeAllSubscriptions Card.prototype.removeSubscription Card.prototype.subscribeToClickedEvent Card.prototype.subscribeToDismissedEvent Banner CaptionedImage ClassicCard ControlCard ContentCards ContentCards.prototype.getUnviewedCardCount Feed Feed.prototype.getUnreadCardCount ControlMessage InAppMessage InAppMessage.SlideFrom InAppMessage.ClickAction InAppMessage.DismissType InAppMessage.OpenTarget InAppMessage.ImageStyle InAppMessage.Orientation InAppMessage.TextAlignment InAppMessage.CropType InAppMessage.prototype.closeMessage InAppMessage.prototype.removeAllSubscriptions InAppMessage.prototype.removeSubscription InAppMessage.prototype.subscribeToClickedEvent InAppMessage.prototype.subscribeToDismissedEvent FullScreenMessage ModalMessage HtmlMessage SlideUpMessage User User.Genders User.NotificationSubscriptionTypes User.prototype.addAlias User.prototype.addToCustomAttributeArray User.prototype.getUserId User.prototype.incrementCustomUserAttribute User.prototype.removeFromCustomAttributeArray User.prototype.setAvatarImageUrl User.prototype.setCountry User.prototype.setCustomLocationAttribute User.prototype.setCustomUserAttribute User.prototype.setDateOfBirth User.prototype.setEmail User.prototype.setEmailNotificationSubscriptionType User.prototype.setFirstName User.prototype.setGender User.prototype.setHomeCity User.prototype.setLanguage User.prototype.setLastKnownLocation User.prototype.setLastName User.prototype.setPhoneNumber User.prototype.setPushNotificationSubscriptionType InAppMessageButton InAppMessageButton.prototype.removeAllSubscriptions InAppMessageButton.prototype.removeSubscription InAppMessageButton.prototype.subscribeToClickedEvent display display.automaticallyShowNewInAppMessages display.destroyFeed display.hideContentCards display.showContentCards display.showFeed display.showInAppMessage display.toggleContentCards display.toggleFeed changeUser destroy getDeviceId initialize isPushBlocked isPushGranted isPushPermissionGranted isPushSupported logCardClick logCardDismissal logCardImpressions logContentCardsDisplayed logCustomEvent logFeedDisplayed logInAppMessageButtonClick logInAppMessageClick logInAppMessageHtmlClick logInAppMessageImpression logPurchase openSession registerAppboyPushMessages removeAllSubscriptions removeSubscription requestContentCardsRefresh requestFeedRefresh requestImmediateDataFlush resumeWebTracking setLogger setSdkAuthenticationSignature stopWebTracking subscribeToContentCardsUpdates subscribeToFeedUpdates subscribeToInAppMessage subscribeToNewInAppMessages subscribeToSdkAuthenticationFailures toggleAppboyLogging trackLocation unregisterAppboyPushMessages wipeData".split(" "),i=0;i<s.length;i++){for(var m=s[i],k=a.appboy,l=m.split("."),j=0;j<l.length-1;j++)k=k[l[j]];k[l[j]]=(new Function("return function "+m.replace(/\./g,"_")+"(){window.appboyQueue.push(arguments); return true}"))()}window.appboy.getCachedContentCards=function(){return new window.appboy.ContentCards};window.appboy.getCachedFeed=function(){return new window.appboy.Feed};window.appboy.getUser=function(){return new window.appboy.User};(y=p.createElement(P)).type='text/javascript';
+            y.src='https://js.appboycdn.com/web-sdk/3.3/appboy.min.js';
+            y.async=1;(b=p.getElementsByTagName(P)[0]).parentNode.insertBefore(y,b)
+          }(window,document,'script');
+        
+          appboy.initialize('e0d5416c-551d-4e74-864b-63df8de74028', { baseUrl: 'sondheim.braze.com' });
+          // appboy.display.automaticallyShowNewInAppMessages();
+
+          /*
+           * If you have a unique identifier for this user (e.g. they are logged into your site) it's a good idea to call
+           * changeUser here.
+           * See https://js.appboycdn.com/web-sdk/3.3/doc/modules/appboy.html#changeuser for more information.
+           */
+          // appboy.changeUser(userIdentifier);
+          appboy.subscribeToInAppMessage(function(inAppMessage) {
+            var shouldDisplay = true;
+
+            if (inAppMessage instanceof appboy.InAppMessage) {
+              // Read the key-value pair for msg-id
+              var msgId = inAppMessage.extras["msg-id"];
+
+              // If this is our push primer message
+              if (msgId == "push-primer") {
+                // We don't want to display the soft push prompt to users on browsers that don't support push, or if the user
+                // has already granted/blocked permission
+                if (!appboy.isPushSupported() || appboy.isPushPermissionGranted() || appboy.isPushBlocked()) {
+                  shouldDisplay = false;
+                }
+                if (inAppMessage.buttons[0] != null) {
+                  // Prompt the user when the first button is clicked
+                  inAppMessage.buttons[0].subscribeToClickedEvent(function() {
+                    appboy.registerAppboyPushMessages();
+                  });
+                }
+              }
+            }
+
+            // Display the message
+              if (shouldDisplay) {
+                appboy.display.showInAppMessage(inAppMessage);
+              }
+            });
+          appboy.openSession();
+
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Simple app</title>
+       <link rel="stylesheet" href="main.css">
+
+    </head>
+    <body class="light-theme">
+      <h1>Task List</h1>
+        <p id="msg">Web SDK Integration</p>
+        <ul>
+            <li class="list">Standard integration</li>
+            <li class="list">Add light and dark themes</li>
+          </ul>
+          <div>
+            <button class="btn">Dark</button>
+          </div>
+          <br>
+          <br>
+          <div>
+              <form id="signup">
+                <h1>Sign Up</h1>
+                <div class="field">
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" name="name" placeholder="Enter your first name" value=""/>
+                </div>
+                <br>
+                <div class="field">
+                  <label for="email">Email:</label>
+                  <input type="text" id="email" name="email" placeholder="Enter your email address" value="" />
+                </div>
+                <br>
+                <div class="field">
+                  <button type="submit" id="form-button">Submit</button>
+                </div>
+              </form>
+            </div>
+            <br>
+            <br>
+          <div>
+            <button id="event-button" type="submit"><span>Update</span></button>
+            <input id="event-name" placeholder="Custom Event Name" type="text" value="">
+          </div>
+          <br>
+          <div>
+            <button id= "attribute-button" type="submit"><span>Update</span></button>
+            <input id="attribute-name" placeholder="Attribute Name" type="text" value="">
+            <input id="attribute-value" placeholder="Attribute Value" type="text" value="">
+          </div>
+          <br>
+          <div>
+              <button id= "push-prompt-button" class="submit" type="submit"><span>Show Push Registration Prompt</span></button>
+          </div>
+
+        <script src="app.js"></script>
+        <noscript>You need to enable JavaScript to view the full site.</noscript>
+    </body>
+</html>
