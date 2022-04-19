@@ -190,6 +190,7 @@ div.fdoe-item {
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+  align-items: center;
 }
 
 /* The Close Button */
@@ -205,4 +206,20 @@ div.fdoe-item {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+select {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  outline: 0;
+  padding: 4px;
+  border-radius: 2px;
+}
+
+
+/* Shopping cart */
+.Cart-Container {
+  position: absolute;
+  top: 80px;
+  right: 0;
 }

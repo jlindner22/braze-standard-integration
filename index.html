@@ -102,28 +102,61 @@
               <button id= "push-prompt-button" class="submit" type="submit"><span>Show Push Registration Prompt</span></button>
           </div>
           <br>
-          <div>
+          <!-- <div>
             <button id="cake-button" type="submit"><span>Buy Cake</span></button>
             <input id="cake-size" placeholder="Inches" type="text" value="">
             <input id="cake-flavor" placeholder="Flavor" type="text" value="">
           </div>
+          <br> -->
           <br>
-
           <br>
-          <br>
-          <button id="myBtn">Open Modal</button>
+          <div id="myBtn">Cake</div> 
 
 <!-- The Modal -->
 
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
-  <div class="modal-content">
+  <div class="modal-content purchase">
     <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <!-- <p>Some text in the Modal..</p> -->
+    What flavor?
+    <form action="#" id="cake-button">
+      <!-- <label for="flavor">Flavor</label> -->
+      <select name="flavors" id="cake-flavor">
+          <option value="Chocolate">Select a flavor</option>
+        <option value="Chocolate">Chocolate</option>
+        <option value="Vanilla">Vanilla</option>
+        <option value="Oreo">Oreo</option>
+        <option value="Strawberry Shortcake">Strawberry Shortcake</option>
+      </select>
+      <!-- <input type="submit" value="Submit" />
+    </form> -->
+    <br>
+    What size?
+    <!-- <form action="#"> -->
+      <!-- <label for="size">Size</label> -->
+      <select name="size" id="cake-size">
+          <option value="6">Select a size</option>
+        <option value="6">6</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+        <option value="14">14</option>
+      </select>
+      <input type="submit" value="Submit" />
+    </form>
   </div>
 
 </div>
+
+<div class=”Cart-Container”>
+  <h3>Your Order</h3>
+  <div id="cart">
+  Empty for now!
+  </div>
+</div>
+
+
 
 
          <script src="app.js"></script>
