@@ -1,6 +1,6 @@
 
-:root {
-    --green: rgba(0, 255, 0, 0.358);
+/* :root {
+    --green: rgba(0, 255, 0, 0.116);
     --white: #ffffff;
     --black: #000000;
   }
@@ -62,3 +62,147 @@ li {
     height: 40px;
     border-radius: 10%;
   }
+
+  .archive.post-type-archive-product.woocommerce-active .page-description .fdoe-products .fdoe_add_price_item.fdoe-simple:before {
+  content: "+";
+  color: white;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 40px;
+  }
+
+
+.fdoe_item_price {
+  text-align: center;
+}
+
+.fdoe_desc {
+  padding: 0.6em;
+  vertical-align: middle;
+}
+
+.fdoe_main_container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.fdoe_price_and_add_onecol {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+#the_menu .fdoe-item * {
+  word-break: keep-all;
+  word-wrap: break-word;
+}
+
+.flex-container-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 5.5em;
+}
+
+#the_menu .fdoe-item * {
+  word-break: keep-all;
+  word-wrap: break-word;
+}
+
+.archive.post-type-archive-product.woocommerce-active .page-description #the_menu {
+  box-shadow: none;
+}
+
+.flex-container-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.fdoe-products, .fdoe-products div {
+  border-style: none;
+}
+
+.archive.post-type-archive-product.woocommerce-active .page-description .fdoe-products div.fdoe-item {
+  padding: 0 32px;
+  border: 1px solid #fff;
+}
+
+.fdoe_main_container [role="button"], .fdoe-aromodals-wrap [role="button"] {
+  cursor: pointer;
+}
+
+div.fdoe-item {
+  width: 100%;
+  border-bottom: 1px dashed #ddd;
+  clear: both;
+  transition: all 150ms cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+
+
+
+.loading_image_contanier {
+  background-color: #ececec47;width: 100%;height: 500px;position: absolute;
+}
+
+.loading_image_contanier img{margin: 0 auto;display: block;margin-top: 15%;}
+
+#byconsolewooodt_delivery_date_alternate_field{display:none;}
+
+.loading_image_contanier_for_widget{background-color: #ececec47;position: absolute;width: 22%;height: 295px;padding: 20px;}
+
+.loading_image_contanier_for_widget img{margin: 0 auto;display: block;margin-top: 50%;width: 20%;}
+
+.byconsole_cart_content1{display:none;}
+
+.byconsole_cart_content2{display:none;}
+
+
+
+
+
+ */
+
+ /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script type="text/javascript">
+    <head> 
+      <script type="text/javascript">
           +function(a,p,P,b,y){a.appboy={};a.appboyQueue=[];for(var s="DeviceProperties Card Card.prototype.dismissCard Card.prototype.removeAllSubscriptions Card.prototype.removeSubscription Card.prototype.subscribeToClickedEvent Card.prototype.subscribeToDismissedEvent Banner CaptionedImage ClassicCard ControlCard ContentCards ContentCards.prototype.getUnviewedCardCount Feed Feed.prototype.getUnreadCardCount ControlMessage InAppMessage InAppMessage.SlideFrom InAppMessage.ClickAction InAppMessage.DismissType InAppMessage.OpenTarget InAppMessage.ImageStyle InAppMessage.Orientation InAppMessage.TextAlignment InAppMessage.CropType InAppMessage.prototype.closeMessage InAppMessage.prototype.removeAllSubscriptions InAppMessage.prototype.removeSubscription InAppMessage.prototype.subscribeToClickedEvent InAppMessage.prototype.subscribeToDismissedEvent FullScreenMessage ModalMessage HtmlMessage SlideUpMessage User User.Genders User.NotificationSubscriptionTypes User.prototype.addAlias User.prototype.addToCustomAttributeArray User.prototype.getUserId User.prototype.incrementCustomUserAttribute User.prototype.removeFromCustomAttributeArray User.prototype.setAvatarImageUrl User.prototype.setCountry User.prototype.setCustomLocationAttribute User.prototype.setCustomUserAttribute User.prototype.setDateOfBirth User.prototype.setEmail User.prototype.setEmailNotificationSubscriptionType User.prototype.setFirstName User.prototype.setGender User.prototype.setHomeCity User.prototype.setLanguage User.prototype.setLastKnownLocation User.prototype.setLastName User.prototype.setPhoneNumber User.prototype.setPushNotificationSubscriptionType InAppMessageButton InAppMessageButton.prototype.removeAllSubscriptions InAppMessageButton.prototype.removeSubscription InAppMessageButton.prototype.subscribeToClickedEvent display display.automaticallyShowNewInAppMessages display.destroyFeed display.hideContentCards display.showContentCards display.showFeed display.showInAppMessage display.toggleContentCards display.toggleFeed changeUser destroy getDeviceId initialize isPushBlocked isPushGranted isPushPermissionGranted isPushSupported logCardClick logCardDismissal logCardImpressions logContentCardsDisplayed logCustomEvent logFeedDisplayed logInAppMessageButtonClick logInAppMessageClick logInAppMessageHtmlClick logInAppMessageImpression logPurchase openSession registerAppboyPushMessages removeAllSubscriptions removeSubscription requestContentCardsRefresh requestFeedRefresh requestImmediateDataFlush resumeWebTracking setLogger setSdkAuthenticationSignature stopWebTracking subscribeToContentCardsUpdates subscribeToFeedUpdates subscribeToInAppMessage subscribeToNewInAppMessages subscribeToSdkAuthenticationFailures toggleAppboyLogging trackLocation unregisterAppboyPushMessages wipeData".split(" "),i=0;i<s.length;i++){for(var m=s[i],k=a.appboy,l=m.split("."),j=0;j<l.length-1;j++)k=k[l[j]];k[l[j]]=(new Function("return function "+m.replace(/\./g,"_")+"(){window.appboyQueue.push(arguments); return true}"))()}window.appboy.getCachedContentCards=function(){return new window.appboy.ContentCards};window.appboy.getCachedFeed=function(){return new window.appboy.Feed};window.appboy.getUser=function(){return new window.appboy.User};(y=p.createElement(P)).type='text/javascript';
             y.src='https://js.appboycdn.com/web-sdk/3.3/appboy.min.js';
             y.async=1;(b=p.getElementsByTagName(P)[0]).parentNode.insertBefore(y,b)
           }(window,document,'script');
         
-          appboy.initialize('e0d5416c-551d-4e74-864b-63df8de74028', { baseUrl: 'sondheim.braze.com' });
+          appboy.initialize('e0d5416c-551d-4e74-864b-63df8de74028', 
+          { baseUrl: 'sondheim.braze.com' });
           // appboy.display.automaticallyShowNewInAppMessages();
 
           /*
@@ -20,13 +21,13 @@
             var shouldDisplay = true;
 
             if (inAppMessage instanceof appboy.InAppMessage) {
-              // Read the key-value pair for msg-id
+          //     // Read the key-value pair for msg-id
               var msgId = inAppMessage.extras["msg-id"];
 
-              // If this is our push primer message
+          //     // If this is our push primer message
               if (msgId == "push-primer") {
-                // We don't want to display the soft push prompt to users on browsers that don't support push, or if the user
-                // has already granted/blocked permission
+          //       // We don't want to display the soft push prompt to users on browsers that don't support push, or if the user
+          //       // has already granted/blocked permission
                 if (!appboy.isPushSupported() || appboy.isPushPermissionGranted() || appboy.isPushBlocked()) {
                   shouldDisplay = false;
                 }
@@ -46,11 +47,11 @@
             });
           appboy.openSession();
 
-        </script>
+         </script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Simple app</title>
+       <title>Jen's Bakery!</title>
        <link rel="stylesheet" href="main.css">
 
     </head>
@@ -100,8 +101,34 @@
           <div>
               <button id= "push-prompt-button" class="submit" type="submit"><span>Show Push Registration Prompt</span></button>
           </div>
+          <br>
+          <div>
+            <button id="cake-button" type="submit"><span>Buy Cake</span></button>
+            <input id="cake-size" placeholder="Inches" type="text" value="">
+            <input id="cake-flavor" placeholder="Flavor" type="text" value="">
+          </div>
+          <br>
 
-        <script src="app.js"></script>
-        <noscript>You need to enable JavaScript to view the full site.</noscript>
-    </body>
-</html>
+          <br>
+          <br>
+          <button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+
+
+         <script src="app.js"></script>
+         <noscript>You need to enable JavaScript to view the full site.</noscript>
+     </body>
+ </html>
+
+ 
